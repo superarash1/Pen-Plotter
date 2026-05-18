@@ -1,0 +1,18 @@
+[Unit]
+Description=Pen Plotter GUI
+After=graphical.target
+Wants=graphical.target
+
+[Service]
+Type=simple
+User=pi
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+WorkingDirectory=/home/pi
+ExecStartPre=/bin/sleep 5
+ExecStart=/usr/bin/python3 /home/pi/plotter_gui.py
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target
