@@ -5,12 +5,12 @@ Wants=graphical.target
 
 [Service]
 Type=simple
-User=pi
+User=sbrt
 Environment=DISPLAY=:0
-Environment=XAUTHORITY=/home/pi/.Xauthority
-WorkingDirectory=/home/pi
+Environment=XAUTHORITY=/home/sbrt/.Xauthority
+WorkingDirectory=/home/sbrt
 ExecStartPre=/bin/sleep 5
-ExecStart=/usr/bin/python3 /home/pi/plotter_gui.py
+ExecStart=/usr/bin/python3 /home/sbrt/plotter_gui.py
 Restart=on-failure
 RestartSec=5
 
