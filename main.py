@@ -434,10 +434,12 @@ def execute(params):
     # M3 — Pen down
     elif cmd == 'M3':
         pen_down()
+        time.sleep_us(1000)
 
     # M5 — Pen up
     elif cmd == 'M5':
         pen_up()
+        time.sleep_us(1000)
 
     # M17 — Enable motors
     elif cmd == 'M17':

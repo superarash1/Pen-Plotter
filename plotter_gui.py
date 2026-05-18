@@ -110,9 +110,19 @@ class PlotterApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Pen Plotter")
-        self.root.geometry("{}x{}".format(SCREEN_W, SCREEN_H))
         self.root.configure(bg=BG)
         self.root.resizable(False, False)
+
+        # Fullscreen on startup
+        self.root.attributes('-fullscreen', True)
+
+        # Update geometry vars to match actual screen size after fullscreen
+        self.root.update_idletasks()
+        SCREEN_W = self.root.winfo_screenwidth()
+        SCREEN_H = self.root.winfo_screenheight()
+
+        # Press Escape to exit fullscreen (useful for development)
+        self.root.bind('<Escape>', lambda e: self.root.attributes('-fullscreen', False))
 
         # Hide cursor for touchscreen kiosk mode
         # self.root.config(cursor="none")  # uncomment for kiosk
